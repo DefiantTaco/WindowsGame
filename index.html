@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Slime clicker</title>
+    <script src="C:\Users\marcus.lindback\Documents\GitHub\WebSlutProjekt\upgrades.js"></script>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      .on {}
+      .off {}
+      #game{
+        height: 100vh;
+        width: 100%;
+        float: left;
+        background-image: url("https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0792/3919/slime_2018_rainbow_highres.png");
+        background-size: cover;
+        position: absolute;
+        background-repeat: no-repeat;
+      }
+      #upgrades{
+        float:right;
+        width: 35%;
+        height: 100vh;
+        background-color: #FE7ED1;
+        float: right;
+        display: none;
+        margin-left: 64%;
+        position: absolute;
+        border-left: 8px double black;
+      }
+      #slime{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        margin-top: 20%;
+      }
+      #text{
+        font-size: 300%;
+        text-align: center;
+        color: black;
+      }
+      #autoClicker{
+        width: 90%;
+        height: 15vh;
+        background-color: #FF7268;
+        text-align: center;
+        margin-left: 5%;
+        margin-top: 5%;
+        border-radius: 12%;
+      }
+      #SlimeFactory{
+        width: 90%;
+        height: 15vh;
+        background-color: #FF7268;
+        text-align: center;
+        margin-left: 5%;
+        margin-top: 5%;
+        border-radius: 12%;
+      }
+      #SlimeGalactica{
+        width: 90%;
+        height: 15vh;
+        background-color: #FF7268;
+        text-align: center;
+        margin-left: 5%;
+        margin-top: 5%;
+        border-radius: 12%;
+      }
+      #SlimeExplosive{
+        width: 90%;
+        height: 15vh;
+        background-color: #FF7268;
+        text-align: center;
+        margin-left: 5%;
+        margin-top: 5%;
+        border-radius: 12%;
+      }
+      #SlimeRad{
+        width: 90%;
+        height: 15vh;
+        background-color: #FF7268;
+        text-align: center;
+        margin-left: 5%;
+        margin-top: 5%;
+        border-radius: 12%;
+      }
+      #onoff{
+        width: 15%;
+        height: 7vh;
+        border: 0;
+        position: absolute;
+        margin-top: 87.9%;
+        background-color: #96B8FF;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game">
+      <a id="slime" href=# onclick="add()"><img src="C:\Users\marcus.lindback\Desktop\PinkSlime.png"></a>
+      <br><br>
+      <p id="text">Score: </p>
+    </div>
+
+    <div id="upgrades">
+      <div id="autoClicker">
+        <p>Buy 1 Auto Clicker</p>
+        <button><a href="#" onClick="buyAutoClick()"><img src="C:\Users\marcus.lindback\Desktop\mousehover.png" width="50px" height="50px"></a></button>
+        <p id="costAutoClick">3 Slime Coins</p>
+        <p id="amountAutoClick">You Own 0 Auto Clickers</p>
+      </div>
+
+      <div id="SlimeFactory">
+        <p>Buy 1 Slime Factory</p>
+        <button><a href="#" onClick="buySlimeFactory()"><img src="https://previews.123rf.com/images/jemastock/jemastock1706/jemastock170606588/80040290-factory-illustration-cartoon-icon-vector-design-graphic.jpg" width="50px" height="50px"></a></button>
+        <p id="costSlimeFactory">50 Slime Coins</p>
+        <p id="amountSlimeFactory">You Own 0 Slime Factories</p>
+      </div>
+
+      <div id="SlimeGalactica">
+        <p>Buy 1 Slime Galactica</p>
+        <button><a href="#" onClick="buySlimeGalactia()"><img src="" width="50px" height="50px"></a></button>
+        <p id="costSlimeGalactica">100 Slime Coins</p>
+        <p id="amountSlimeGalactica">You Own 0 Slime Galacticas</p>
+      </div>
+
+      <div id="SlimeExplosive">
+        <p>Buy 1 Slime Explosive</p>
+        <button><a href="#" onClick="buySlimeExplosive()"><img src="" width="50px" height="50px"></a></button>
+        <p id="costSlimeExplosive">500 Slime Coins</p>
+        <p id="amountSlimeExplosive">You Own 0 Slime Explosives</p>
+      </div>
+
+      <div id="SlimeRad">
+        <p>Buy 1 Slime Radioactive</p>
+        <button><a href="#" onClick="buySlimeRad()"><img src="" width="50px" height="50px"></a></button>
+        <p id="costSlimeRad">1500 Slime Coins</p>
+        <p id="amountSlimeRad">You Own 0 Slime Radioactives</p>
+      </div>
+
+    </div>
+    <input type="button" id="onoff" value="Upgrades" class="off" onclick="togglestyle(this)" />
+
+    <script>
+      var cookiecount = 0;
+      var dps = 0;
+      var roundeddps = 0;
+
+      function timer(){
+        cookiecount = cookiecount + dps;
+        update();
+      }
+
+      function update(){
+        cookiecountrounded = Math.round(cookiecount * 100) / 100;
+        document.getElementById("text").innerHTML = "Score: " + cookiecountrounded;
+        UpdateShop();
+        dps = dpsAuto + dpsFactory + dpsGalactica + dpsExplosive + dpsRad;
+        roundeddps = Math.round(dps * 100) / 100;
+        document.title = roundeddps + " Slimes per second";
+      }
+      setInterval(timer, 1000);
+
+      function add(){
+        cookiecount = Math.round((cookiecount + 1) * 100) / 100;
+        document.getElementById("text").innerHTML = "Score: " + cookiecount;
+      }
+
+      function togglestyle(el){
+        if(el.className == "on") {
+          el.className="off";
+          document.getElementById("upgrades").style.display = "none";
+          document.getElementById("slime").style.width = "40%";
+          document.getElementById("game").style.width = "100%";
+        } else {
+          el.className="on";
+          document.getElementById("upgrades").style.display = "block";
+          document.getElementById("slime").style.width = "64%";
+          document.getElementById("game").style.width = "64%";
+        }
+      }
+    </script>
+  </body>
+</html>
