@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Slime clicker</title>
-    <script src="C:\Users\marcus.lindback\Documents\GitHub\WebSlutProjekt\upgrades.js"></script>
+    <script src="D:\GymnasieSpel\WindowsGame\upgrades.js"></script>
     <style>
       *{
         margin: 0;
@@ -11,6 +11,7 @@
       }
       .on {}
       .off {}
+
       #game{
         height: 100vh;
         width: 100%;
@@ -21,27 +22,34 @@
         background-repeat: no-repeat;
       }
       #upgrades{
-        float:right;
         width: 35%;
         height: 100vh;
         background-color: #FE7ED1;
-        float: right;
         display: none;
         margin-left: 64%;
         position: absolute;
         border-left: 8px double black;
+      }
+      #ClickUpgrades{
+        width: 35%;
+        height: 100vh;
+        background-color: #FE7ED1;
+        display: none;
+        position: absolute;
+        border-right: 8px double black;
       }
       #slime{
         display: block;
         margin-left: auto;
         margin-right: auto;
         width: 40%;
-        margin-top: 20%;
+        margin-top: 17%;
       }
       #text{
         font-size: 300%;
         text-align: center;
         color: black;
+        margin-top: 3%;
       }
       #autoClicker{
         width: 90%;
@@ -88,61 +96,100 @@
         margin-top: 5%;
         border-radius: 12%;
       }
-      #onoff{
-        width: 15%;
-        height: 7vh;
+      #UpgradesButton{
+        width: 49%;
+        height: 10vh;
         border: 0;
         position: absolute;
-        margin-top: 87.9%;
+        margin-top: 85%;
         background-color: #96B8FF;
+        font-size: 150%;
+      }
+      #ClickUpgradesButton{
+        width: 49%;
+        height: 10vh;
+        border: 0;
+        position: absolute;
+        margin-left: 51%;
+        margin-top: 85%;
+        background-color: #96B8FF;
+        font-size: 150%;
+      }
+      #SlimeClick{
+        width: 90%;
+        height: 15vh;
+        background-color: #FF7268;
+        text-align: center;
+        margin-left: 5%;
+        margin-top: 5%;
+        border-radius: 12%;
+      }
+      #SlimeExplosiveClick{
+        width: 90%;
+        height: 15vh;
+        background-color: #FF7268;
+        text-align: center;
+        margin-left: 5%;
+        margin-top: 5%;
+        border-radius: 12%;
       }
     </style>
   </head>
   <body>
     <div id="game">
-      <a id="slime" href=# onclick="add()"><img src="C:\Users\marcus.lindback\Desktop\PinkSlime.png"></a>
-      <br><br>
       <p id="text">Score: </p>
+      <a id="slime" href=# onclick="add()"><img src="PinkSlime.png"></a>
+      <br><br>
     </div>
 
     <div id="upgrades">
       <div id="autoClicker">
         <p>Buy 1 Auto Clicker</p>
-        <button><a href="#" onClick="buyAutoClick()"><img src="C:\Users\marcus.lindback\Desktop\mousehover.png" width="50px" height="50px"></a></button>
+        <button><a href="#" onClick="buyAutoClick()"><img src="upgrade.jpg" width="50px" height="50px"></a></button>
         <p id="costAutoClick">3 Slime Coins</p>
         <p id="amountAutoClick">You Own 0 Auto Clickers</p>
       </div>
-
       <div id="SlimeFactory">
         <p>Buy 1 Slime Factory</p>
-        <button><a href="#" onClick="buySlimeFactory()"><img src="https://previews.123rf.com/images/jemastock/jemastock1706/jemastock170606588/80040290-factory-illustration-cartoon-icon-vector-design-graphic.jpg" width="50px" height="50px"></a></button>
-        <p id="costSlimeFactory">50 Slime Coins</p>
+        <button><a href="#" onClick="buySlimeFactory()"><img src="upgrade.jpg" width="50px" height="50px"></a></button>
+        <p id="costSlimeFactory">25 Slime Coins</p>
         <p id="amountSlimeFactory">You Own 0 Slime Factories</p>
       </div>
-
       <div id="SlimeGalactica">
         <p>Buy 1 Slime Galactica</p>
-        <button><a href="#" onClick="buySlimeGalactia()"><img src="" width="50px" height="50px"></a></button>
+        <button><a href="#" onClick="buySlimeGalactia()"><img src="upgrade.jpg" width="50px" height="50px"></a></button>
         <p id="costSlimeGalactica">100 Slime Coins</p>
         <p id="amountSlimeGalactica">You Own 0 Slime Galacticas</p>
       </div>
-
       <div id="SlimeExplosive">
         <p>Buy 1 Slime Explosive</p>
-        <button><a href="#" onClick="buySlimeExplosive()"><img src="" width="50px" height="50px"></a></button>
+        <button><a href="#" onClick="buySlimeExplosive()"><img src="upgrade.jpg" width="50px" height="50px"></a></button>
         <p id="costSlimeExplosive">500 Slime Coins</p>
         <p id="amountSlimeExplosive">You Own 0 Slime Explosives</p>
       </div>
-
       <div id="SlimeRad">
         <p>Buy 1 Slime Radioactive</p>
-        <button><a href="#" onClick="buySlimeRad()"><img src="" width="50px" height="50px"></a></button>
+        <button><a href="#" onClick="buySlimeRad()"><img src="upgrade.jpg" width="50px" height="50px"></a></button>
         <p id="costSlimeRad">1500 Slime Coins</p>
         <p id="amountSlimeRad">You Own 0 Slime Radioactives</p>
       </div>
-
     </div>
-    <input type="button" id="onoff" value="Upgrades" class="off" onclick="togglestyle(this)" />
+
+    <div id="ClickUpgrades">
+      <div id="SlimeClick">
+        <p>Buy Slime Clicker</p>
+        <button><a href="#" onClick="buySlimeClick()"><img src="upgrade.jpg" width="50px" height="50px"></a></button>
+        <p >200 Slime Coins</p>
+      </div>
+      <div id="SlimeExplosiveClick">
+        <p>Buy Slime Explosive Clicker</p>
+        <button><a href="#" onClick="buySlimeExplosiveClick()"><img src="upgrade.jpg" width="50px" height="50px"></a></button>
+        <p> 500 Slime Coins</p>
+      </div>
+    </div>
+
+    <input type="button" id="UpgradesButton" value="Upgrades" class="off" onclick="togglestyleUpgrades(this)" />
+    <input type="button" id="ClickUpgradesButton" value="Click Upgrades" class="off" onclick="togglestyleClickUpgrades(this)" />
 
     <script>
       var cookiecount = 0;
@@ -165,11 +212,11 @@
       setInterval(timer, 1000);
 
       function add(){
-        cookiecount = Math.round((cookiecount + 1) * 100) / 100;
+        cookiecount = Math.round((cookiecount + Click) * 100) / 100;
         document.getElementById("text").innerHTML = "Score: " + cookiecount;
       }
 
-      function togglestyle(el){
+      function togglestyleUpgrades(el){
         if(el.className == "on") {
           el.className="off";
           document.getElementById("upgrades").style.display = "none";
@@ -180,6 +227,22 @@
           document.getElementById("upgrades").style.display = "block";
           document.getElementById("slime").style.width = "64%";
           document.getElementById("game").style.width = "64%";
+        }
+      }
+
+      function togglestyleClickUpgrades(el){
+        if(el.className == "on") {
+          el.className="off";
+          document.getElementById("ClickUpgrades").style.display = "none";
+          document.getElementById("slime").style.width = "40%";
+          document.getElementById("game").style.width = "100%";
+          document.getElementById("game").style.marginLeft = "0%";
+        } else {
+          el.className="on";
+          document.getElementById("ClickUpgrades").style.display = "block";
+          document.getElementById("slime").style.width = "64%";
+          document.getElementById("game").style.width = "64%";
+          document.getElementById("game").style.marginLeft = "36%";
         }
       }
     </script>
